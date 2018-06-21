@@ -31,12 +31,12 @@ void setup()
     pinMode(ENCODER_2, INPUT); // set ENCODER_2 to input
     InitializeInterrupt();
     interrupts();
-    Serial.begin(115200); //115200 baud, 8 data bits, 1 stop bit, no parity, XON/XOFF flow control
-    while (!Serial) {
-        ; // wait for serial port to connect. Needed for native USB port only
-    }
-    Serial.println("");
-    Serial.println("UW ECE Ideas Clinic Pitching Machine");
+    // Serial.begin(115200); //115200 baud, 8 data bits, 1 stop bit, no parity, XON/XOFF flow control
+    // while (!Serial) {
+    //     ; // wait for serial port to connect. Needed for native USB port only
+    // }
+    // Serial.println("");
+    // Serial.println("UW ECE Ideas Clinic Pitching Machine");
 }
 
 void loop()
