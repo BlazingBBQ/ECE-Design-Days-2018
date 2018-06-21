@@ -6,7 +6,7 @@
 
 ArduinoMotorShieldR3 md;
 // Input from serial port
-int inputByte;
+float inputByte;
 
 void setup()
 {
@@ -21,30 +21,36 @@ void setup()
   while (!Serial) {
     ; // wait for serial port to connect. Needed for native USB port only
   }
+  // wifi connecting....
+
+  // attempt to connect to an open network:
+//  String ssid = 
+//  Serial.println("Attempting to connect to open network...");
+//  status = WiFi.begin(ssid);
+//
+//  // if you're not connected, stop here:
+//  if ( status != WL_CONNECTED) { 
+//    Serial.println("Couldn't get a wifi connection");
+//    while(true);
+//  } 
+//  // if you are connected :
+//  else {
+//      Serial.print("Connected to the network");
+//  }
+
+  
   Serial.println("");
   Serial.println("UW ECE Ideas Clinic Pitching Machine");
 }
 
 void loop()
 {
-  if (Serial.available() > 0) {
-    // Read incomming byte
-    inputByte = Serial.read();
-    Serial.print("> ");
-    Serial.println(inputByte, DEC);
+//  md.setSpeed2(-0.5, -0.5);
+  md.setSpeed2(0, 0);
 
-    if (inputByte == 0){
-        Serial.println("Braking");
-
-        md.setSpeed2(0, 0);
-      } else {
-        // Else set new speed for motors based on input
-        Serial.print("Setting new speed to: ");
-        Serial.println(inputByte, DEC);
-        
-        md.setSpeed2(inputByte, inputByte);
-      }
-  }
+  
+  
+  
   return;
 }
 
@@ -73,5 +79,7 @@ ISR(TIMER1_COMPA_vect) //Timer Interrupt Service Routine
 {
 //This will trigger at a frequency determined by TIMER_MAX
 }
+
+
 
 
