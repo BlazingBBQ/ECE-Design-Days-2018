@@ -36,13 +36,13 @@ void loop()
     if (inputByte == 0){
         Serial.println("Braking");
 
-        md.setSpeed2(inputByte, inputByte);
+        md.setSpeed2(0, 0);
       } else {
         // Else set new speed for motors based on input
         Serial.print("Setting new speed to: ");
         Serial.println(inputByte, DEC);
         
-        md.setSpeed2(0, 0);
+        md.setSpeed2(inputByte, inputByte);
       }
   }
   return;
