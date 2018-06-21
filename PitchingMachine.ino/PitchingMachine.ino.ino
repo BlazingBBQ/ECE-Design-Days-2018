@@ -9,7 +9,7 @@
 
 ArduinoMotorShieldR3 md;
 // Input from serial port
-int inputByte;
+float inputByte;
 
 // Listen on default port 5555, the webserver on the Yun
 // will forward there all the HTTP requests for us.
