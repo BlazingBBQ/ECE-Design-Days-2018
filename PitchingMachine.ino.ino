@@ -25,10 +25,24 @@ void setup()
 
 void loop()
 {
-  while (Serial.available() <= 0) {
-      md.setSpeed2(1.0, 1.0);
+  if (Serial.available() > 0) {
+    // Read incomming byte
+    inputByte = Serial.read();
+    Serial.print("> ");
+    Serial.println(inputByte, DEC);
+
+    if (inputByte == 0){
+        Serial.println("Braking");
+
+        md.setSpeed2(inputByte, inputByte);
+      } else {
+        // Else set new speed for motors based on input
+        Serial.print("Setting new speed to: ");
+        Serial.println(inputByte, DEC);
+        
+        md.setSpeed2(0, 0);
+      }
   }
-  md.setSpeed2(0, 0);
   return;
 }
 
