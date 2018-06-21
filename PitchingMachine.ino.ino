@@ -5,6 +5,8 @@
 //That is, it will call ISR(TIMER1_COMPA_vect) every 1/fDesired seconds. The default value gives 10 Hz.
 
 ArduinoMotorShieldR3 md;
+// Input from serial port
+int inputByte;
 
 void setup()
 {
